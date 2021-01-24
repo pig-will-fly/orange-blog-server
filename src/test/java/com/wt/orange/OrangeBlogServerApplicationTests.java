@@ -21,14 +21,14 @@ class OrangeBlogServerApplicationTests {
 
     @Test
     void getEssayListPage() {
-        //参数一是当前页，参数二是每页个数
+        //参数一是当前页，参数二是每页条数
         Page<Map<String, Object>> page = new Page<>(1L, 2L);
         page = blogEssayService.getEssayListPage(page, 1);
     }
 
     @Test
     void getCommentListPage() {
-        //参数一是当前页，参数二是每页个数
+        //参数一是当前页，参数二是每页条数
         Page<Map<String, Object>> page = new Page<>(1L, 2L);
         page = blogCommentService.getCommentListPage(page, 1, null);
     }
@@ -47,8 +47,8 @@ class OrangeBlogServerApplicationTests {
     @Test
     void test() {
         CommentVo vo = new CommentVo();
-        vo.setName("王涛");
-        vo.setContent("大中国2");
+        vo.setName("test");
+        vo.setContent("111");
         this.blogCommentService.saveComment(vo);
     }
 
