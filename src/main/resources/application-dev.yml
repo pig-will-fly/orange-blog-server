@@ -12,7 +12,7 @@ spring:
       prefix: /
       suffix: .html
 server:
-  port: 9000
+  port: 9001
 logging:
   level:
     root: info
