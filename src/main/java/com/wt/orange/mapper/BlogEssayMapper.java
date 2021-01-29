@@ -15,6 +15,13 @@ import org.springframework.stereotype.Component;
 @Component
 public interface BlogEssayMapper extends BaseMapper<BlogEssay> {
 
+    /**
+     * <p>查询文章阅读量</p>
+     *
+     * @return Integer
+     * @author Wang Tao
+     * @date 2021-01-16 00:18:30
+     */
     @Select("select sum(views) views from blog_essay where flag = 0 and published = 1")
     Integer queryViewsNum();
 }
