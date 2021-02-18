@@ -26,10 +26,11 @@ public class CommentController {
 
     /**
      * <p></p>
+     *
      * @param currentPage 当前页码
-     * @param limit 分页大小
-     * @param essayId 文章id
-     * @param type 评论留言类型
+     * @param limit       分页大小
+     * @param essayId     文章id
+     * @param type        评论留言类型
      * @return ResponseResult
      * @date 2021-01-15 18:23:06
      * @author Wang Tao
@@ -58,13 +59,14 @@ public class CommentController {
 
     /**
      * <p>保存评论留言信息</p>
+     *
      * @param commentVo 评论留言参数
      * @return ResponseResult
      * @author Wang Tao
      * @date 2021-01-17 16:37:57
      */
     @PostMapping("/save")
-    public ResponseResult<Map<String, Object>> saveComment(@RequestBody CommentVo commentVo){
+    public ResponseResult<Map<String, Object>> saveComment(@RequestBody CommentVo commentVo) {
         this.blogCommentService.saveComment(commentVo);
         return ResponseResult.success();
     }

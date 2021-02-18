@@ -18,6 +18,16 @@ logging:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
-
+blog:
+  ignored:
+    resources:
+      - /api/login
+      - /api/logout
+      - /api/comment/**
+      - /api/essay/**
+jwt:
+  tokenHeader: Authorization
+  tokenPrefix:  "Bearer "
+  secret: 5aW95aW95a2m5Lmg5aSp5aSp5ZCR5LiKCiA=
+  expiration: 7200000
 

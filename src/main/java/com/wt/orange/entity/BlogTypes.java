@@ -3,24 +3,24 @@ package com.wt.orange.entity;
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-
+import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 /**
- * <p> 博客文章类型实体类 </p>
+ * (BlogTypes)实体类
  *
  * @author Wang Tao
- * @date 2021-01-11 22:41:29
+ * @date 2021-02-01 22:57:44
  */
-public class BlogTypes {
+public class BlogTypes implements Serializable {
+    private static final long serialVersionUID = 305471009272495160L;
     /**
      * 主键id
      */
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
     /**
-     * 文章类型
+     * 类型
      */
     private Integer type;
     /**
@@ -28,30 +28,24 @@ public class BlogTypes {
      */
     private String typeName;
     /**
-     * 数据版本
-     */
-    @Version
-    @TableField(fill= FieldFill.INSERT)
-    private Integer version;
-    /**
      * 创建时间
      */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @TableField(fill= FieldFill.INSERT)
+    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
     /**
      * 更新时间
      */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @TableField(fill= FieldFill.INSERT_UPDATE)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
     /**
-     * 删除标识
-     * 0：正常 1：删除
+     * 删除标识（0：正常，1：删除）
      */
     @TableLogic
-    @TableField(fill= FieldFill.INSERT)
+    @TableField(fill = FieldFill.INSERT)
     private Integer flag;
+
 
     public Long getId() {
         return id;
@@ -77,14 +71,6 @@ public class BlogTypes {
         this.typeName = typeName;
     }
 
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
-
     public LocalDateTime getCreateTime() {
         return createTime;
     }
@@ -108,4 +94,5 @@ public class BlogTypes {
     public void setFlag(Integer flag) {
         this.flag = flag;
     }
+
 }

@@ -7,46 +7,26 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * (BlogComment)实体类
+ * (UserRoles)实体类
  *
  * @author Wang Tao
  * @date 2021-02-01 22:57:44
  */
-public class BlogComment implements Serializable {
-    private static final long serialVersionUID = -61054254309483932L;
+public class UserRoles implements Serializable {
+    private static final long serialVersionUID = 871698565761870630L;
     /**
      * 主键id
      */
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
     /**
-     * 用户头像
+     * 用户id
      */
-    private String avatar;
+    private Long userId;
     /**
-     * 用户昵称
+     * 角色id
      */
-    private String name;
-    /**
-     * 用户邮箱
-     */
-    private String email;
-    /**
-     * 博客互动内容
-     */
-    private String content;
-    /**
-     * 博客互动类型（1：访客留言，2：文章评论）
-     */
-    private Integer type;
-    /**
-     * 文章id
-     */
-    private Long essayId;
-    /**
-     * 父节点id
-     */
-    private Long parentId;
+    private Long roleId;
     /**
      * 创建时间
      */
@@ -60,7 +40,7 @@ public class BlogComment implements Serializable {
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
     /**
-     * 数据版本号
+     * 版本号
      */
     @Version
     @TableField(fill = FieldFill.INSERT)
@@ -81,60 +61,20 @@ public class BlogComment implements Serializable {
         this.id = id;
     }
 
-    public String getAvatar() {
-        return avatar;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public String getName() {
-        return name;
+    public Long getRoleId() {
+        return roleId;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Long getEssayId() {
-        return essayId;
-    }
-
-    public void setEssayId(Long essayId) {
-        this.essayId = essayId;
-    }
-
-    public Long getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
     }
 
     public LocalDateTime getCreateTime() {

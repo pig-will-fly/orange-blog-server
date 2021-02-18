@@ -7,46 +7,50 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * (BlogComment)实体类
+ * (User)实体类
  *
  * @author Wang Tao
- * @date 2021-02-01 22:57:44
+ * @date 2021-02-04 22:03:34
  */
-public class BlogComment implements Serializable {
-    private static final long serialVersionUID = -61054254309483932L;
+public class User implements Serializable {
+    private static final long serialVersionUID = 897145161836613033L;
     /**
      * 主键id
      */
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
     /**
-     * 用户头像
+     * 用户名
      */
-    private String avatar;
+    private String username;
+    /**
+     * 密码
+     */
+    private String password;
     /**
      * 用户昵称
      */
-    private String name;
+    private String nickname;
     /**
-     * 用户邮箱
+     * 头像路径
+     */
+    private String avatar;
+    /**
+     * 性别（0：女，1：男）
+     */
+    private Integer sex;
+    /**
+     * 电话号码
+     */
+    private Integer tel;
+    /**
+     * 电子邮箱
      */
     private String email;
     /**
-     * 博客互动内容
+     * 用户类型（0：系统用户，1：注册用户）
      */
-    private String content;
-    /**
-     * 博客互动类型（1：访客留言，2：文章评论）
-     */
-    private Integer type;
-    /**
-     * 文章id
-     */
-    private Long essayId;
-    /**
-     * 父节点id
-     */
-    private Long parentId;
+    private Integer userType;
     /**
      * 创建时间
      */
@@ -60,7 +64,7 @@ public class BlogComment implements Serializable {
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
     /**
-     * 数据版本号
+     * 版本号
      */
     @Version
     @TableField(fill = FieldFill.INSERT)
@@ -81,6 +85,30 @@ public class BlogComment implements Serializable {
         this.id = id;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
     public String getAvatar() {
         return avatar;
     }
@@ -89,12 +117,20 @@ public class BlogComment implements Serializable {
         this.avatar = avatar;
     }
 
-    public String getName() {
-        return name;
+    public Integer getSex() {
+        return sex;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSex(Integer sex) {
+        this.sex = sex;
+    }
+
+    public Integer getTel() {
+        return tel;
+    }
+
+    public void setTel(Integer tel) {
+        this.tel = tel;
     }
 
     public String getEmail() {
@@ -105,36 +141,12 @@ public class BlogComment implements Serializable {
         this.email = email;
     }
 
-    public String getContent() {
-        return content;
+    public Integer getUserType() {
+        return userType;
     }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Long getEssayId() {
-        return essayId;
-    }
-
-    public void setEssayId(Long essayId) {
-        this.essayId = essayId;
-    }
-
-    public Long getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
+    public void setUserType(Integer userType) {
+        this.userType = userType;
     }
 
     public LocalDateTime getCreateTime() {

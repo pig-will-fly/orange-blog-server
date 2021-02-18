@@ -7,46 +7,46 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * (BlogComment)实体类
+ * (Menu)实体类
  *
  * @author Wang Tao
- * @date 2021-02-01 22:57:44
+ * @date 2021-02-04 22:03:34
  */
-public class BlogComment implements Serializable {
-    private static final long serialVersionUID = -61054254309483932L;
+public class Menu implements Serializable {
+    private static final long serialVersionUID = 231757057864124598L;
     /**
-     * 主键id
+     * 菜单ID
      */
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
     /**
-     * 用户头像
-     */
-    private String avatar;
-    /**
-     * 用户昵称
-     */
-    private String name;
-    /**
-     * 用户邮箱
-     */
-    private String email;
-    /**
-     * 博客互动内容
-     */
-    private String content;
-    /**
-     * 博客互动类型（1：访客留言，2：文章评论）
-     */
-    private Integer type;
-    /**
-     * 文章id
-     */
-    private Long essayId;
-    /**
-     * 父节点id
+     * 父菜单ID
      */
     private Long parentId;
+    /**
+     * 菜单名称
+     */
+    private String menuName;
+    /**
+     * 请求地址
+     */
+    private String url;
+    /**
+     * 请求方式
+     */
+    private String method;
+    /**
+     * 权限字符串
+     */
+    private String permission;
+    /**
+     * 菜单类型（0：目录，1：菜单，2：按钮）
+     */
+    private Integer menuType;
+    /**
+     * 显示顺序
+     */
+    private Integer orderNum;
     /**
      * 创建时间
      */
@@ -60,7 +60,7 @@ public class BlogComment implements Serializable {
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
     /**
-     * 数据版本号
+     * 版本号
      */
     @Version
     @TableField(fill = FieldFill.INSERT)
@@ -81,60 +81,60 @@ public class BlogComment implements Serializable {
         this.id = id;
     }
 
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Long getEssayId() {
-        return essayId;
-    }
-
-    public void setEssayId(Long essayId) {
-        this.essayId = essayId;
-    }
-
     public Long getParentId() {
         return parentId;
     }
 
     public void setParentId(Long parentId) {
         this.parentId = parentId;
+    }
+
+    public String getMenuName() {
+        return menuName;
+    }
+
+    public void setMenuName(String menuName) {
+        this.menuName = menuName;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
+    }
+
+    public String getPermission() {
+        return permission;
+    }
+
+    public void setPermission(String permission) {
+        this.permission = permission;
+    }
+
+    public Integer getMenuType() {
+        return menuType;
+    }
+
+    public void setMenuType(Integer menuType) {
+        this.menuType = menuType;
+    }
+
+    public Integer getOrderNum() {
+        return orderNum;
+    }
+
+    public void setOrderNum(Integer orderNum) {
+        this.orderNum = orderNum;
     }
 
     public LocalDateTime getCreateTime() {

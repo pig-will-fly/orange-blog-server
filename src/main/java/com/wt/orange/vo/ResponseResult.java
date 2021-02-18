@@ -1,5 +1,6 @@
 package com.wt.orange.vo;
 
+import com.google.gson.GsonBuilder;
 import com.wt.orange.constant.Constant;
 
 /**
@@ -27,16 +28,18 @@ public class ResponseResult<T> {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public ResponseResult<T> setCode(Integer code) {
         this.code = code;
+        return this;
     }
 
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public ResponseResult<T> setMessage(String message) {
         this.message = message;
+        return this;
     }
 
     public T getData() {
@@ -87,5 +90,10 @@ public class ResponseResult<T> {
         responseResult.setCode(resultEnum.getCode());
         responseResult.setMessage(resultEnum.getValue());
         return responseResult;
+    }
+
+    @Override
+    public String toString() {
+        return  new GsonBuilder().serializeNulls().create().toJson(this);
     }
 }

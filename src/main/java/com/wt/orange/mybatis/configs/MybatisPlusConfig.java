@@ -1,4 +1,4 @@
-package com.wt.orange.configs;
+package com.wt.orange.mybatis.configs;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;

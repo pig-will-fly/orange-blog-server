@@ -1,6 +1,7 @@
 package com.wt.orange.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.wt.orange.entity.BlogEssay;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -93,4 +94,54 @@ public interface BlogEssayService {
      * @date 2021-01-18 00:31:49
      */
     void updateEssayView(Long id);
+
+    /**
+     * <p>获取文章管理列表</p>
+     *
+     * @param page 分页信息
+     * @return Page
+     * @author Wang Tao
+     * @date 2021-02-18 17:19:06
+     */
+    Page<Map<String, Object>> getEssayManageListPage(Page<Map<String, Object>> page);
+
+    /**
+     * <p>保存文章信息</p>
+     *
+     * @param blogEssay 文章实体类
+     * @return void
+     * @author Wang Tao
+     * @date 2021-02-18 17:22:24
+     */
+    void saveBlogEssay(BlogEssay blogEssay);
+
+    /**
+     * <p>根据id获取待编辑文章详情</p>
+     *
+     * @param id 文章id
+     * @return Map
+     * @author Wang Tao
+     * @date 2021-02-18 17:20:54
+     */
+    Map<String, Object> getEssayDetailForEdit(Long id);
+
+    /**
+     * <p>文章发布</p>
+     *
+     * @param essayList 待发布文章实体
+     * @return void
+     * @author Wang Tao
+     * @date 2021-02-18 17:23:23
+     */
+    void publishBlogEssay(List<BlogEssay> essayList);
+
+    /**
+     * <p>删除文章</p>
+     *
+     * @param ids 待删除文章id
+     * @return void
+     * @author Wang Tao
+     * @date 2021-02-18 17:24:44
+     */
+    void deleteBlogEssay(List<Long> ids);
 }

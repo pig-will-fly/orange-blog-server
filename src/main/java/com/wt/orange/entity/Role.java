@@ -7,46 +7,30 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * (BlogComment)实体类
+ * (Role)实体类
  *
  * @author Wang Tao
- * @date 2021-02-01 22:57:44
+ * @date 2021-02-04 22:03:34
  */
-public class BlogComment implements Serializable {
-    private static final long serialVersionUID = -61054254309483932L;
+public class Role implements Serializable {
+    private static final long serialVersionUID = 326720526495326079L;
     /**
-     * 主键id
+     * 角色id
      */
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
     /**
-     * 用户头像
+     * 角色名称
      */
-    private String avatar;
+    private String roleName;
     /**
-     * 用户昵称
+     * 角色权限
      */
-    private String name;
+    private String permission;
     /**
-     * 用户邮箱
+     * 是否生效（0：有效，1：失效）
      */
-    private String email;
-    /**
-     * 博客互动内容
-     */
-    private String content;
-    /**
-     * 博客互动类型（1：访客留言，2：文章评论）
-     */
-    private Integer type;
-    /**
-     * 文章id
-     */
-    private Long essayId;
-    /**
-     * 父节点id
-     */
-    private Long parentId;
+    private Integer effective;
     /**
      * 创建时间
      */
@@ -60,7 +44,7 @@ public class BlogComment implements Serializable {
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
     /**
-     * 数据版本号
+     * 版本号
      */
     @Version
     @TableField(fill = FieldFill.INSERT)
@@ -81,60 +65,28 @@ public class BlogComment implements Serializable {
         this.id = id;
     }
 
-    public String getAvatar() {
-        return avatar;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
-    public String getName() {
-        return name;
+    public String getPermission() {
+        return permission;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPermission(String permission) {
+        this.permission = permission;
     }
 
-    public String getEmail() {
-        return email;
+    public Integer getEffective() {
+        return effective;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Long getEssayId() {
-        return essayId;
-    }
-
-    public void setEssayId(Long essayId) {
-        this.essayId = essayId;
-    }
-
-    public Long getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
+    public void setEffective(Integer effective) {
+        this.effective = effective;
     }
 
     public LocalDateTime getCreateTime() {

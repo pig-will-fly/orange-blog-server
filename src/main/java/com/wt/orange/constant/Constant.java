@@ -27,9 +27,21 @@ public class Constant {
          */
         BUSINESS_ERROR(-2, "业务异常"),
         /**
+         * 未知异常
+         */
+        UNKNOWN_ERROR(-3, "未知异常"),
+        /**
          * 参数异常
          */
-        PARAM_ERROR(-3, "参数不正确！");
+        PARAM_ERROR(-4, "参数不正确！"),
+        /**
+         * 权限不足
+         */
+        ACCESS_DENIED(-5, "权限不足！"),
+        /**
+         * token过期
+         */
+        TOKEN_ERROR(-6, "token已过期，请重新登录！");
 
         private Integer code;
 
@@ -120,6 +132,40 @@ public class Constant {
         private String value;
 
         BlogCommentEnum(Integer code, String value) {
+            this.code = code;
+            this.value = value;
+        }
+
+        public Integer getCode() {
+            return code;
+        }
+
+        public String getValue() {
+            return value;
+        }
+    }
+
+    /**
+     * <p>公共状态枚举</p>
+     *
+     * @author Wang Tao
+     * @date 2021-02-02 19:41:28
+     */
+    public enum BlogCommonEnum {
+        /**
+         * 删除标识-正常
+         */
+        BLOG_COMMON_FLAG_Y(0, "正常"),
+        /**
+         * 删除标识-已删除
+         */
+        BLOG_COMMON_FLAG_N(1, "已删除");
+
+        private Integer code;
+
+        private String value;
+
+        BlogCommonEnum(Integer code, String value) {
             this.code = code;
             this.value = value;
         }
