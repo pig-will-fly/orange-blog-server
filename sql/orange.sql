@@ -28,6 +28,7 @@ CREATE TABLE `blog_essay`
     `id`          bigint(20) NOT NULL COMMENT '主键id',
     `title`       varchar(200) DEFAULT NULL COMMENT '文章标题',
     `type`        tinyint(4) DEFAULT NULL COMMENT '文章类型',
+    `tags`        varchar(50)  DEFAULT NULL COMMENT '文章标签',
     `summary`     varchar(300) DEFAULT NULL COMMENT '文章概览',
     `content`     text COMMENT '文章内容',
     `published`   tinyint(4) DEFAULT NULL COMMENT '是否发布（0：未发布，1：已发布）',
