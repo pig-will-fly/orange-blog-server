@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * <p> 用户相关操作 </p>
@@ -47,17 +48,18 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         // 获取用户权限
         List<UserPermission> userPermissionList = this.getUserPermissionByUserId(user.getId());
+
         // 组装用户及其权限信息
         AuthUser authUser = new AuthUser();
         BeanUtils.copyProperties(user, authUser);
-        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-        for (UserPermission userPermission : userPermissionList) {
-            if (userPermission.getRolePermission() != null)
-                grantedAuthorities.add(new SimpleGrantedAuthority(userPermission.getRolePermission()));
-            if (userPermission.getMenuPermission() != null)
-                grantedAuthorities.add(new SimpleGrantedAuthority(userPermission.getMenuPermission()));
-        }
-        authUser.setAuthorities(grantedAuthorities);
+        authUser.setAuthorities(userPermissionList.parallelStream().flatMap((e) -> {
+            Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
+            if (e.getRolePermission() != null)
+                grantedAuthorities.add(new SimpleGrantedAuthority(e.getRolePermission()));
+            if (e.getMenuPermission() != null)
+                grantedAuthorities.add(new SimpleGrantedAuthority(e.getMenuPermission()));
+            return grantedAuthorities.parallelStream();
+        }).collect(Collectors.toSet()));
 
         return authUser;
     }

@@ -11,6 +11,18 @@ mybatis-plus:
       logic-delete-field: flag  # 全局逻辑删除的实体字段名
       logic-delete-value: 1 # 逻辑已删除值(默认为 1)
       logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+blog:
+  ignored:
+    resources:
+      - /api/login
+      - /api/logout
+      - /api/comment/**
+      - /api/essay/**
+jwt:
+  tokenHeader: Authorization
+  tokenPrefix:  "Bearer "
+  secret: 5aW95aW95a2m5Lmg5aSp5aSp5ZCR5LiKCiA=
+  expiration: 7200000
 
 
 

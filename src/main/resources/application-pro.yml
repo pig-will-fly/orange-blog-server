@@ -1,14 +1,16 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url:jdbc: mysql//192.168.229.128:3306/essayblog?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/orangeblog?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
     username: root
-    password: 123456
+    password: tt19940120.
 server:
-  port: 8080
+  port: 9000
 logging:
   level:
     root: info
-    com.wt: debug
+logback:
+  logdir: /opt/logs
+  appname: orangeblog
     
 
